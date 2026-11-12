@@ -8,7 +8,7 @@ com foco em SEO e conversão. Mesma base técnica da landing page (lp.assertivar
 1. `npm install` e `npm run build`: gera o site estático em `dist/client`.
 2. Faça backup da pasta `web` atual da hospedagem (Arquivos e FTP no painel da Locaweb).
 3. Envie todo o conteúdo de `dist/client` para a pasta `web`, incluindo `web.config`.
-4. Depois que o SSL voltar a funcionar, ative a regra "Forcar HTTPS" no `web.config` (instruções no próprio arquivo).
+4. O `web.config` já redireciona http para https e www para sem www (o SSL Let's Encrypt foi reemitido em 12/11/2026).
 
 ## Configuração
 
