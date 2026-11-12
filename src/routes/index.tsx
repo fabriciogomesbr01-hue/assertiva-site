@@ -56,7 +56,14 @@ const TITLE = "Recuperação de Crédito e Cobrança Extrajudicial | Assertiva";
 const DESCRIPTION =
   "Recuperação de crédito e cobrança extrajudicial para empresas, bancos e cooperativas. Mais de 20 anos, cobrança humanizada e remuneração por êxito.";
 
+// Foco de SEO da home: marca Assertiva, "recuperação de crédito" e "assessoria de cobrança".
+// As palavras da campanha ("empresa de cobrança terceirizada/extrajudicial") ficam com a landing page
+// (lp.assertivarc.com.br), para as duas páginas não disputarem a mesma busca.
 const faqs = [
+  {
+    q: "O que é recuperação de crédito?",
+    a: "É o conjunto de ações para receber valores em atraso: diagnóstico da carteira, localização dos devedores, negociação e acompanhamento dos acordos até o pagamento, preferencialmente sem processo judicial.",
+  },
   {
     q: "O que faz uma empresa de recuperação de crédito?",
     a: "Assume a cobrança da sua carteira de inadimplentes: localiza os devedores, negocia por vários canais e acompanha cada acordo até o pagamento, com relatórios para a sua empresa.",
@@ -324,6 +331,37 @@ function Home() {
             ))}
           </div>
           <p className="mx-auto mt-6 max-w-2xl text-sm opacity-75">Cadastrados no <strong>CAS (Centro Administrativo do Sicredi)</strong>: mais de 100 cooperativas podem nos contratar de imediato.</p>
+        </div>
+      </section>
+
+      {/* Sobre */}
+      <section id="sobre" className="scroll-mt-20 border-y border-border bg-surface py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 lg:grid-cols-[1.1fr_1fr]">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-wider text-primary">Quem somos</p>
+            <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Assessoria de cobrança e <span className="text-gradient">recuperação de crédito</span> há mais de 20 anos</h2>
+            <div className="mt-5 space-y-4 text-muted-foreground">
+              <p>
+                A Assertiva Recuperação de Crédito (Assertiva Multicanalidade) é uma assessoria de cobrança com sede no Espírito Santo e
+                atuação em todo o Brasil. Recuperamos ativos de cooperativas de crédito, bancos e empresas de diversos segmentos,
+                combinando cobrança humanizada, tecnologia própria e uma base com mais de 250 milhões de dados.
+              </p>
+              <p>
+                Cuidamos de todo o ciclo de recuperação de crédito, da cobrança extrajudicial à judicial, com relatórios em tempo real,
+                processos alinhados à LGPD e remuneração por êxito: nosso resultado depende do quanto você recebe.
+              </p>
+            </div>
+          </div>
+          <ul className="grid gap-3 self-center">
+            {[
+              "Mais de 20 anos de experiência em recuperação de crédito",
+              "Cadastrada no CAS do Sicredi: mais de 100 cooperativas podem contratar de imediato",
+              "Sede no Espírito Santo, com operação digital e visita externa em todo o país",
+              "Cobrança humanizada, dentro da LGPD e do Código de Defesa do Consumidor",
+            ].map((t) => (
+              <li key={t} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 text-sm"><Check className="mt-0.5 size-5 shrink-0 text-primary" />{t}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
