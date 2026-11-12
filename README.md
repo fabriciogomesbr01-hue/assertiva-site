@@ -3,12 +3,11 @@
 Home institucional da Assertiva Recuperação de Crédito, recriada a partir do site anterior (Next.js da DNS Consulting)
 com foco em SEO e conversão. Mesma base técnica da landing page (lp.assertivarc.com.br).
 
-## Publicação na Locaweb (hospedagem Windows / IIS)
+## Publicação
 
-1. `npm install` e `npm run build`: gera o site estático em `dist/client`.
-2. Faça backup da pasta `web` atual da hospedagem (Arquivos e FTP no painel da Locaweb).
-3. Envie todo o conteúdo de `dist/client` para a pasta `web`, incluindo `web.config`.
-4. O `web.config` já redireciona http para https e www para sem www (o SSL Let's Encrypt foi reemitido em 12/11/2026).
+GitHub Pages: cada envio para o `main` roda `.github/workflows/deploy.yml` (typecheck, testes, build e deploy).
+O domínio vem de `public/CNAME`. Na Zona de DNS da Locaweb, `assertivarc.com.br` aponta (registro A) para os IPs do
+GitHub Pages e `www` é um CNAME para `fabriciogomesbr01-hue.github.io`. Os e-mails (MX) continuam na Locaweb.
 
 ## Configuração
 
