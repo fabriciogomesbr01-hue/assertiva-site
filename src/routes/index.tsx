@@ -233,18 +233,25 @@ function Card({ icon: I, t, d, tone = "card" }: { icon: ComponentType<{ classNam
 function Home() {
   const [open, setOpen] = useState<number | null>(0);
   const [menu, setMenu] = useState(false);
-  // Esconde o WhatsApp flutuante enquanto o topo (que já tem botão de WhatsApp) está na tela.
-  const [heroVisible, setHeroVisible] = useState(true);
+  // WhatsApp flutuante: aparece quando a pessoa começa a rolar e some enquanto o formulário está na tela.
+  const [scrolled, setScrolled] = useState(false);
+  const [formVisible, setFormVisible] = useState(false);
   useEffect(() => {
-    const hero = document.getElementById("inicio");
-    if (!hero || typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver(([e]) => setHeroVisible(!!e?.isIntersecting), { threshold: 0.2 });
-    io.observe(hero);
+    const onScroll = () => setScrolled(window.scrollY > 200);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  useEffect(() => {
+    const form = document.getElementById("form");
+    if (!form || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(([e]) => setFormVisible(!!e?.isIntersecting), { threshold: 0.15 });
+    io.observe(form);
     return () => io.disconnect();
   }, []);
 
   return (
-    <main className="overflow-x-hidden pb-20 md:pb-0">
+    <main className="overflow-x-hidden">
       {/* Cabeçalho */}
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
@@ -255,9 +262,6 @@ function Home() {
             {nav.map((n) => <a key={n.href} href={n.href} className="hover:text-foreground">{n.label}</a>)}
           </nav>
           <div className="flex items-center gap-2">
-            <WhatsAppLink location="topo" className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-bold sm:px-4 ${waButton}`}>
-              <MessageCircle className="size-5" /><span className="hidden sm:inline">WhatsApp</span><span className="sr-only sm:hidden">Falar no WhatsApp</span>
-            </WhatsAppLink>
             <a href="#contato" className="hidden rounded-lg bg-primary px-4 py-2 text-sm font-bold text-primary-foreground hover:brightness-110 sm:inline-block">Análise gratuita</a>
             <button type="button" onClick={() => setMenu(!menu)} aria-expanded={menu} aria-controls="menu-celular" className="rounded-lg border border-border p-2 lg:hidden">
               <span className="sr-only">Abrir menu</span>
@@ -286,12 +290,12 @@ function Home() {
             <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
               A Assertiva Recuperação de Crédito combina mais de 20 anos de mercado com inteligência artificial e uma base de 250 milhões de dados para localizar e negociar com seus inadimplentes, do jeito certo.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="#contato" className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-4 font-bold text-primary-foreground hover:brightness-110">
+            <div className="mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-5">
+              <a href="#contato" className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-4 font-bold text-primary-foreground hover:brightness-110 sm:w-auto">
                 Solicitar análise gratuita <ArrowRight className="size-5" />
               </a>
-              <WhatsAppLink location="inicio" className={`inline-flex items-center justify-center gap-2 rounded-lg px-6 py-4 font-bold ${waButton}`}>
-                <MessageCircle className="size-5" /> Falar no WhatsApp
+              <WhatsAppLink location="inicio" className="inline-flex items-center gap-2 py-2 text-sm font-semibold text-muted-foreground hover:text-foreground">
+                <MessageCircle className="size-4 text-[#25D366]" /> ou fale no WhatsApp
               </WhatsAppLink>
             </div>
             <ul className="mt-8 grid gap-2 text-sm sm:grid-cols-2">
@@ -500,22 +504,16 @@ function Home() {
               <li className="inline-flex items-center gap-2 text-muted-foreground"><Car className="size-4 text-primary" />Equipe de visita externa em todo o território nacional</li>
             </ul>
           </div>
-          <LeadForm id="form" title="Solicite uma análise gratuita" />
+          {/* No celular o formulário vem primeiro: é a conversão principal. */}
+          <div className="order-first lg:order-none">
+            <LeadForm id="form" title="Solicite uma análise gratuita" />
+          </div>
         </div>
       </section>
 
       <SiteFooter />
 
-      {/* Barra fixa no celular */}
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
-        <div className="grid grid-cols-2 gap-2">
-          <a href="#contato" className="rounded-lg bg-primary py-3 text-center text-sm font-bold text-primary-foreground">Análise gratuita</a>
-          <WhatsAppLink location="barra_celular" className={`flex items-center justify-center gap-1.5 rounded-lg py-3 text-sm font-bold ${waButton}`}>
-            <MessageCircle className="size-4" /> WhatsApp
-          </WhatsAppLink>
-        </div>
-      </div>
-      <WhatsAppFloat hidden={heroVisible} />
+      <WhatsAppFloat show={scrolled && !formVisible} />
     </main>
   );
 }
