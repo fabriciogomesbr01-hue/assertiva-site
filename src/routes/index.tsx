@@ -114,10 +114,10 @@ export const Route = createFileRoute("/")({
               "@type": "ProfessionalService",
               "@id": `${SITE_URL}/#empresa`,
               name: "Assertiva Recuperação de Crédito",
-              alternateName: COMPANY.name,
+              alternateName: COMPANY.legalName,
               description: DESCRIPTION,
               url: `${SITE_URL}/`,
-              logo: `${SITE_URL}/logos/logo-assertiva.png`,
+              logo: `${SITE_URL}/logos/logo-assertiva-rc.png`,
               image: `${SITE_URL}/og-image.png`,
               telephone: `+55 ${COMPANY.phones[0]}`,
               address: { "@type": "PostalAddress", addressRegion: "ES", addressCountry: "BR" },
@@ -249,7 +249,7 @@ function Home() {
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
           <a href="#inicio" aria-label="Assertiva Recuperação de Crédito, início">
-            <img src="/logos/logo-assertiva.png" alt="Assertiva Recuperação de Crédito" width={237} height={120} fetchPriority="high" className="h-12 w-auto sm:h-14" />
+            <img src="/logos/logo-assertiva-rc.png" alt="Assertiva Recuperação de Crédito" width={1019} height={240} fetchPriority="high" className="h-12 w-auto sm:h-14" />
           </a>
           <nav aria-label="Principal" className="hidden items-center gap-6 text-sm font-semibold text-muted-foreground lg:flex">
             {nav.map((n) => <a key={n.href} href={n.href} className="hover:text-foreground">{n.label}</a>)}
@@ -284,7 +284,7 @@ function Home() {
               Recuperação de crédito e cobrança extrajudicial <span className="text-gradient">para seu crédito render mais</span>
             </h1>
             <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
-              A Assertiva Multicanalidade combina mais de 20 anos de mercado com inteligência artificial e uma base de 250 milhões de dados para localizar e negociar com seus inadimplentes, do jeito certo.
+              A Assertiva Recuperação de Crédito combina mais de 20 anos de mercado com inteligência artificial e uma base de 250 milhões de dados para localizar e negociar com seus inadimplentes, do jeito certo.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a href="#contato" className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-4 font-bold text-primary-foreground hover:brightness-110">
