@@ -115,6 +115,9 @@ export const Route = createFileRoute("/")({
               "@id": `${SITE_URL}/#empresa`,
               name: "Assertiva Recuperação de Crédito",
               alternateName: COMPANY.legalName,
+              legalName: COMPANY.legalName,
+              taxID: COMPANY.cnpj,
+              foundingDate: "2017",
               description: DESCRIPTION,
               url: `${SITE_URL}/`,
               logo: `${SITE_URL}/logos/logo-assertiva-rc.png`,
@@ -122,7 +125,7 @@ export const Route = createFileRoute("/")({
               telephone: `+55 ${COMPANY.phones[0]}`,
               address: { "@type": "PostalAddress", addressRegion: "ES", addressCountry: "BR" },
               areaServed: { "@type": "Country", name: "Brasil" },
-              sameAs: [COMPANY.instagram],
+              sameAs: [COMPANY.instagram, COMPANY.linkedin],
               knowsAbout: ["Recuperação de crédito", "Cobrança extrajudicial", "Cobrança judicial", "Assessoria de cobrança"],
               contactPoint: [
                 ...COMPANY.phones.map((p) => ({ "@type": "ContactPoint", telephone: `+55 ${p}`, contactType: "customer service", areaServed: "BR", availableLanguage: "Portuguese" })),
