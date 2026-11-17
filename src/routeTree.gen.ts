@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CooperativasDeCreditoRouteImport } from './routes/cooperativas-de-credito'
 import { Route as ObrigadoRouteImport } from './routes/obrigado'
 import { Route as PoliticaDePrivacidadeRouteImport } from './routes/politica-de-privacidade'
 import { Route as TermosDeUsoRouteImport } from './routes/termos-de-uso'
@@ -17,6 +18,11 @@ import { Route as TermosDeUsoRouteImport } from './routes/termos-de-uso'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CooperativasDeCreditoRoute = CooperativasDeCreditoRouteImport.update({
+  id: '/cooperativas-de-credito',
+  path: '/cooperativas-de-credito',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ObrigadoRoute = ObrigadoRouteImport.update({
@@ -37,12 +43,14 @@ const TermosDeUsoRoute = TermosDeUsoRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cooperativas-de-credito': typeof CooperativasDeCreditoRoute
   '/obrigado': typeof ObrigadoRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/termos-de-uso': typeof TermosDeUsoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cooperativas-de-credito': typeof CooperativasDeCreditoRoute
   '/obrigado': typeof ObrigadoRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/termos-de-uso': typeof TermosDeUsoRoute
@@ -50,18 +58,20 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cooperativas-de-credito': typeof CooperativasDeCreditoRoute
   '/obrigado': typeof ObrigadoRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/termos-de-uso': typeof TermosDeUsoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/obrigado' | '/politica-de-privacidade' | '/termos-de-uso'
+  fullPaths: '/' | '/cooperativas-de-credito' | '/obrigado' | '/politica-de-privacidade' | '/termos-de-uso'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/obrigado' | '/politica-de-privacidade' | '/termos-de-uso'
+  to: '/' | '/cooperativas-de-credito' | '/obrigado' | '/politica-de-privacidade' | '/termos-de-uso'
   id:
     | '__root__'
     | '/'
+    | '/cooperativas-de-credito'
     | '/obrigado'
     | '/politica-de-privacidade'
     | '/termos-de-uso'
@@ -69,6 +79,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CooperativasDeCreditoRoute: typeof CooperativasDeCreditoRoute
   ObrigadoRoute: typeof ObrigadoRoute
   PoliticaDePrivacidadeRoute: typeof PoliticaDePrivacidadeRoute
   TermosDeUsoRoute: typeof TermosDeUsoRoute
@@ -81,6 +92,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cooperativas-de-credito': {
+      id: '/cooperativas-de-credito'
+      path: '/cooperativas-de-credito'
+      fullPath: '/cooperativas-de-credito'
+      preLoaderRoute: typeof CooperativasDeCreditoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/obrigado': {
@@ -109,6 +127,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CooperativasDeCreditoRoute: CooperativasDeCreditoRoute,
   ObrigadoRoute: ObrigadoRoute,
   PoliticaDePrivacidadeRoute: PoliticaDePrivacidadeRoute,
   TermosDeUsoRoute: TermosDeUsoRoute,
