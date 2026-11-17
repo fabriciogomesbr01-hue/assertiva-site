@@ -380,6 +380,9 @@ function Home() {
             Seu segmento não está aqui? <span className="mt-1 inline-flex items-center gap-1">Fale com a gente <ArrowRight className="size-4" /></span>
           </a>
         </div>
+        <a href="/cooperativas-de-credito/" className="mt-6 inline-flex items-center gap-2 font-semibold text-primary hover:underline">
+          Conheça a cobrança para cooperativas de crédito <ArrowRight className="size-4" />
+        </a>
       </Section>
 
       {/* Soluções */}
