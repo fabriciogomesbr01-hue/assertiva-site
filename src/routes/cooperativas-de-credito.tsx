@@ -23,16 +23,17 @@ import { WhatsAppFloat, WhatsAppLink } from "@/components/site/WhatsAppButton";
 import { COMPANY, SITE_URL } from "@/lib/company";
 
 // Página de segmento: cobrança e recuperação de crédito para cooperativas.
-// Textos baseados apenas no que já está publicado na home (CAS do Sicredi, 6+ anos com cooperativas, serviços, LGPD, êxito).
+// Textos baseados apenas no que já está publicado na home (CAS do Sicredi, 7+ anos com cooperativas, serviços, LGPD).
+// Remuneração: por êxito ou por PA fixa, combinada com cada cooperativa.
 const PATH = "/cooperativas-de-credito/";
 const TITLE = "Cobrança e Recuperação de Crédito para Cooperativas | Assertiva";
 const DESCRIPTION =
-  "Recuperação de crédito para cooperativas, com cobrança humanizada, 100% LGPD e remuneração por êxito. Cadastrada no CAS do Sicredi.";
+  "Recuperação de crédito para cooperativas, com cobrança humanizada, 100% LGPD e remuneração por êxito ou PA fixa. Cadastrada no CAS do Sicredi.";
 
 const faqs = [
   {
     q: "A Assertiva atende cooperativas de crédito?",
-    a: "Sim. Estamos cadastrados no CAS do Sicredi, o que permite que mais de 100 cooperativas nos contratem de imediato, e atuamos há mais de 6 anos com cooperativas.",
+    a: "Sim. Estamos cadastrados no CAS do Sicredi, o que permite que mais de 100 cooperativas nos contratem de imediato, e atuamos há mais de 7 anos com cooperativas.",
   },
   {
     q: "A cobrança prejudica o relacionamento com o cooperado?",
@@ -40,7 +41,7 @@ const faqs = [
   },
   {
     q: "Como a Assertiva é remunerada?",
-    a: "Por êxito: a remuneração é calculada sobre a carteira efetivamente recuperada.",
+    a: "Por êxito, calculado sobre o valor efetivamente recuperado, ou por PA fixa. O modelo é combinado com cada cooperativa, conforme a forma como ela costuma trabalhar.",
   },
   {
     q: "Vocês atuam em todo o Brasil?",
@@ -66,7 +67,7 @@ const services: { icon: ComponentType<{ className?: string }>; t: string; d: str
 const pillars: { icon: ComponentType<{ className?: string }>; t: string; d: string }[] = [
   { icon: ChartColumn, t: "Dados e transparência", d: "Dashboards em tempo real, relatórios e BI com os indicadores da carteira, priorização automática dos casos e integração por API." },
   { icon: Lock, t: "100% dentro da LGPD", d: "Os dados dos cooperados são usados apenas para a cobrança contratada, com acesso restrito e armazenamento protegido." },
-  { icon: HandCoins, t: "Remuneração por êxito", d: "Só ganhamos quando a cooperativa recebe. A remuneração é calculada sobre o valor efetivamente recuperado." },
+  { icon: HandCoins, t: "Remuneração do jeito da cooperativa", d: "Trabalhamos por êxito, calculado sobre o valor efetivamente recuperado, ou por PA fixa. O modelo é definido em conversa, conforme a forma como a cooperativa costuma trabalhar." },
 ];
 
 export const Route = createFileRoute("/cooperativas-de-credito")({
@@ -157,7 +158,7 @@ function CooperativasPage() {
             Cobrança e recuperação de crédito <span className="text-gradient">para cooperativas</span>
           </h1>
           <p className="mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            A Assertiva Recuperação de Crédito recupera ativos de cooperativas de crédito há mais de 6 anos. Combina cobrança humanizada, tecnologia
+            A Assertiva Recuperação de Crédito recupera ativos de cooperativas de crédito há mais de 7 anos. Combina cobrança humanizada, tecnologia
             própria e uma base com mais de 250 milhões de dados para localizar e negociar com os cooperados inadimplentes, do jeito certo.
           </p>
           <div className="mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-5">
@@ -169,7 +170,7 @@ function CooperativasPage() {
             </WhatsAppLink>
           </div>
           <ul className="mt-8 grid gap-2 text-sm sm:grid-cols-2">
-            {["Remuneração por êxito", "100% dentro da LGPD", "Cobrança extrajudicial e judicial", "Atuação em todo o Brasil"].map((b) => (
+            {["Remuneração por êxito ou PA fixa", "100% dentro da LGPD", "Cobrança extrajudicial e judicial", "Atuação em todo o Brasil"].map((b) => (
               <li key={b} className="flex items-center gap-2"><Check className="size-4 shrink-0 text-primary" />{b}</li>
             ))}
           </ul>
@@ -266,7 +267,7 @@ function CooperativasPage() {
           </WhatsAppLink>
           <p className="mt-6 text-center text-sm text-muted-foreground">
             <FileCheck className="mr-1 inline size-4 text-primary" />
-            Diagnóstico da carteira sem custo e sem compromisso.
+            Diagnóstico da carteira sem custo e sem compromisso. Na conversa, definimos juntos o modelo de trabalho e de remuneração.
           </p>
         </div>
       </section>
