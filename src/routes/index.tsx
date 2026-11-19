@@ -123,6 +123,7 @@ export const Route = createFileRoute("/")({
               logo: `${SITE_URL}/logos/logo-assertiva-rc.png`,
               image: `${SITE_URL}/og-image.png`,
               telephone: `+55 ${COMPANY.phones[0]}`,
+              email: COMPANY.email,
               address: { "@type": "PostalAddress", addressRegion: "ES", addressCountry: "BR" },
               areaServed: { "@type": "Country", name: "Brasil" },
               sameAs: [COMPANY.instagram, COMPANY.linkedin],
@@ -410,6 +411,9 @@ function Home() {
             { icon: Bot, t: "Robô 24 horas", d: "Atendimento automatizado todos os dias da semana, a qualquer hora." },
           ].map((s) => <Card key={s.t} icon={s.icon} t={s.t} d={s.d} tone="surface" />)}
         </div>
+        <a href="/cobranca-digital-com-ia/" className="mt-6 inline-flex items-center gap-2 font-semibold text-primary hover:underline">
+          Conheça a Plataforma SALT em detalhes <ArrowRight className="size-4" />
+        </a>
       </Section>
 
       {/* Gestão e dados */}
