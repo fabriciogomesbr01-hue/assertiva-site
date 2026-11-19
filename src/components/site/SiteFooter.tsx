@@ -36,6 +36,7 @@ export function SiteFooter() {
             <li><Link to="/" className="hover:text-foreground">Início</Link></li>
             <li><a href="/#faq" className="hover:text-foreground">Perguntas frequentes</a></li>
             <li><a href="/cooperativas-de-credito/" className="hover:text-foreground">Cobrança para cooperativas</a></li>
+            <li><a href="/cobranca-digital-com-ia/" className="hover:text-foreground">Cobrança digital com IA</a></li>
             <li><a href="/politica-de-privacidade/" className="hover:text-foreground">Política de Privacidade</a></li>
             <li><a href="/termos-de-uso/" className="hover:text-foreground">Termos de Uso</a></li>
           </ul>
