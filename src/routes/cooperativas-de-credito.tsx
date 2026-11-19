@@ -23,7 +23,7 @@ import { WhatsAppFloat, WhatsAppLink } from "@/components/site/WhatsAppButton";
 import { COMPANY, SITE_URL } from "@/lib/company";
 
 // Página de segmento: cobrança e recuperação de crédito para cooperativas.
-// Textos baseados apenas no que já está publicado na home (CAS do Sicredi, 8+ anos com cooperativas, serviços, LGPD).
+// Textos baseados apenas no que já está publicado na home (CAS do Sicredi, 8 anos com cooperativas, serviços, LGPD).
 // Remuneração: por êxito ou por PA fixa, combinada com cada cooperativa.
 const PATH = "/cooperativas-de-credito/";
 const TITLE = "Cobrança e Recuperação de Crédito para Cooperativas | Assertiva";
@@ -33,7 +33,7 @@ const DESCRIPTION =
 const faqs = [
   {
     q: "A Assertiva atende cooperativas de crédito?",
-    a: "Sim. Estamos cadastrados no CAS do Sicredi, o que permite que mais de 100 cooperativas nos contratem de imediato, e atuamos há mais de 8 anos com cooperativas.",
+    a: "Sim. Estamos cadastrados no CAS do Sicredi, o que permite que mais de 100 cooperativas nos contratem de imediato, e atuamos há 8 anos com cooperativas.",
   },
   {
     q: "A cobrança prejudica o relacionamento com o cooperado?",
@@ -158,7 +158,7 @@ function CooperativasPage() {
             Cobrança e recuperação de crédito <span className="text-gradient">para cooperativas</span>
           </h1>
           <p className="mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            A Assertiva Recuperação de Crédito recupera ativos de cooperativas de crédito há mais de 8 anos. Combina cobrança humanizada, tecnologia
+            A Assertiva Recuperação de Crédito recupera ativos de cooperativas de crédito há 8 anos. Combina cobrança humanizada, tecnologia
             própria e uma base com mais de 250 milhões de dados para localizar e negociar com os cooperados inadimplentes, do jeito certo.
           </p>
           <div className="mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-5">
