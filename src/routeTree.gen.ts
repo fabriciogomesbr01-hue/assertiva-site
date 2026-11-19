@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CobrancaDigitalComIaRouteImport } from './routes/cobranca-digital-com-ia'
 import { Route as CooperativasDeCreditoRouteImport } from './routes/cooperativas-de-credito'
 import { Route as ObrigadoRouteImport } from './routes/obrigado'
 import { Route as PoliticaDePrivacidadeRouteImport } from './routes/politica-de-privacidade'
@@ -18,6 +19,11 @@ import { Route as TermosDeUsoRouteImport } from './routes/termos-de-uso'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CobrancaDigitalComIaRoute = CobrancaDigitalComIaRouteImport.update({
+  id: '/cobranca-digital-com-ia',
+  path: '/cobranca-digital-com-ia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CooperativasDeCreditoRoute = CooperativasDeCreditoRouteImport.update({
@@ -43,6 +49,7 @@ const TermosDeUsoRoute = TermosDeUsoRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cobranca-digital-com-ia': typeof CobrancaDigitalComIaRoute
   '/cooperativas-de-credito': typeof CooperativasDeCreditoRoute
   '/obrigado': typeof ObrigadoRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cobranca-digital-com-ia': typeof CobrancaDigitalComIaRoute
   '/cooperativas-de-credito': typeof CooperativasDeCreditoRoute
   '/obrigado': typeof ObrigadoRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cobranca-digital-com-ia': typeof CobrancaDigitalComIaRoute
   '/cooperativas-de-credito': typeof CooperativasDeCreditoRoute
   '/obrigado': typeof ObrigadoRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
@@ -65,12 +74,13 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cooperativas-de-credito' | '/obrigado' | '/politica-de-privacidade' | '/termos-de-uso'
+  fullPaths: '/' | '/cobranca-digital-com-ia' | '/cooperativas-de-credito' | '/obrigado' | '/politica-de-privacidade' | '/termos-de-uso'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cooperativas-de-credito' | '/obrigado' | '/politica-de-privacidade' | '/termos-de-uso'
+  to: '/' | '/cobranca-digital-com-ia' | '/cooperativas-de-credito' | '/obrigado' | '/politica-de-privacidade' | '/termos-de-uso'
   id:
     | '__root__'
     | '/'
+    | '/cobranca-digital-com-ia'
     | '/cooperativas-de-credito'
     | '/obrigado'
     | '/politica-de-privacidade'
@@ -79,6 +89,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CobrancaDigitalComIaRoute: typeof CobrancaDigitalComIaRoute
   CooperativasDeCreditoRoute: typeof CooperativasDeCreditoRoute
   ObrigadoRoute: typeof ObrigadoRoute
   PoliticaDePrivacidadeRoute: typeof PoliticaDePrivacidadeRoute
@@ -92,6 +103,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cobranca-digital-com-ia': {
+      id: '/cobranca-digital-com-ia'
+      path: '/cobranca-digital-com-ia'
+      fullPath: '/cobranca-digital-com-ia'
+      preLoaderRoute: typeof CobrancaDigitalComIaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cooperativas-de-credito': {
@@ -127,6 +145,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CobrancaDigitalComIaRoute: CobrancaDigitalComIaRoute,
   CooperativasDeCreditoRoute: CooperativasDeCreditoRoute,
   ObrigadoRoute: ObrigadoRoute,
   PoliticaDePrivacidadeRoute: PoliticaDePrivacidadeRoute,
