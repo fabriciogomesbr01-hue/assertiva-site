@@ -86,7 +86,7 @@ const faqs = [
   },
   {
     q: "Atendem cooperativas de crédito?",
-    a: "Sim. Estamos cadastrados no CAS do Sicredi, o que permite que mais de 100 cooperativas nos contratem de imediato, e atuamos há mais de 7 anos com cooperativas.",
+    a: "Sim. Estamos cadastrados no CAS do Sicredi, o que permite que mais de 100 cooperativas nos contratem de imediato, e atuamos há mais de 8 anos com cooperativas.",
   },
   {
     q: "Vocês atuam em todo o Brasil?",
@@ -161,7 +161,7 @@ const logos = [
 ];
 
 const segments = [
-  { icon: Landmark, t: "Cooperativas e bancos", d: "Cadastrados no CAS do Sicredi e há mais de 7 anos recuperando ativos de cooperativas." },
+  { icon: Landmark, t: "Cooperativas e bancos", d: "Cadastrados no CAS do Sicredi e há mais de 8 anos recuperando ativos de cooperativas." },
   { icon: ShieldCheck, t: "Seguros e consórcio", d: "Cobrança de parcelas e cotas em atraso com abordagem consultiva." },
   { icon: Wallet, t: "Consignado", d: "Recuperação de contratos com régua dedicada a cada perfil." },
   { icon: CreditCard, t: "Cartões", d: "Negociação em escala, com canais digitais e ofertas por perfil de dívida." },
